@@ -6,12 +6,7 @@ st.set_page_config(page_title="Text to Image Generator", layout="centered")
 
 @st.cache_resource
 def load_pipeline():
-    pipe = StableDiffusionPipeline.from_pretrained(
-        "runwayml/stable-diffusion-v1-5",
-        torch_dtype=torch.float32,
-        use_safetensors=True,
-        safety_checker=None 
-    )
+    pipe = StableDiffusionPipeline.from_pretrained("saved_model")
     return pipe.to("cpu")
 
 pipe = load_pipeline()
