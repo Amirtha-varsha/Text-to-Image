@@ -1,0 +1,22 @@
+Task 3: Text-to-Image Pipeline with GUI
+
+This task brings together all components: text preprocessing, embedding, and image generation using a Stable Diffusion model. It also includes a user interface built using Streamlit.
+Key Components:
+- Text preprocessing and encoding
+- Image generation using `StableDiffusionPipeline`
+- GUI for user interaction and visualization
+Technologies:
+- Hugging Face Diffusers
+- PyTorch
+- Streamlit
+Sample Code:
+> In Text_o_image.ipynb
+from diffusers import StableDiffusionPipeline
+pipe = StableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5")
+image = pipe(prompt).images[0]
+> In GUI.py
+st.title("Text to Image Generator")
+user_input = st.text_input("Enter your prompt:")
+if st.button("Generate"):
+    image = pipe(user_input).images[0]
+    st.image(image, caption="Generated Image")
