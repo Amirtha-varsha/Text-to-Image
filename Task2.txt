@@ -1,0 +1,16 @@
+Task 2: Text Preprocessing using Hugging Face Transformers
+
+In this task, we preprocess a user-provided text description into tokenized and encoded representations using Hugging Face's `transformers` library. These embeddings are then ready to be used as input for text-to-image generation models.
+
+Process:
+1. Take input text.
+2. Use pretrained tokenizer and encoder from Hugging Face.
+3. Generate embeddings for use in the image generation pipeline.
+
+Sample Code:
+In text_to_image.ipynb
+from transformers import CLIPTokenizer, CLIPTextModel
+tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-base-patch32")
+text_encoder = CLIPTextModel.from_pretrained("openai/clip-vit-base-patch32")
+tokens = tokenizer(prompt, return_tensors="pt")
+embeddings = text_encoder(**tokens).last_hidden_state
