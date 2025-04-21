@@ -1,9 +1,9 @@
 # Text to Image generator using stable diffusion
 **Internship Project | Nullclass | April 2025**
----
+
 ## Introduction
 This project is a real-world implementation of a **text-to-image generation system** using pretrained deep learning models. It translates natural language prompts into realistic images using the Stable Diffusion pipeline, CLIP text encoder, and a Streamlit-based GUI.
----
+
 ## Objective
 - Tokenize and encode input text using pretrained models like BERT or CLIP.
 - Preprocess text and convert to embeddings for image generation.
