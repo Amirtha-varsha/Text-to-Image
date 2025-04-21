@@ -1,0 +1,16 @@
+Task 1: Text Tokenization and Encoding with Pretrained Language Model
+
+This task involves using a pretrained model to tokenize and encode user input text. We used the Hugging Face `CLIPTokenizer` and `CLIPTextModel` from the `"openai/clip-vit-base-patch32"` model.
+
+Steps:
+1. Load the pretrained tokenizer and text encoder.
+2. Tokenize the prompt using `tokenizer(prompt, return_tensors="pt")`.
+3. Encode the tokens into embeddings with `text_encoder`.
+
+Sample Code:
+In text_to_image.ipynb
+tokenizer = CLIPTokenizer.from_pretrained("openai/clip-vit-base-patch32")
+text_encoder = CLIPTextModel.from_pretrained("openai/clip-vit-base-patch32")
+prompt = "A girl standing in front of a beautiful snow covered home in himalayas"
+tokens = tokenizer(prompt, return_tensors="pt")
+embeddings = text_encoder(**tokens).last_hidden_state
